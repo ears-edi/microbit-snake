@@ -1,4 +1,3 @@
-from random import randint
 from microbit import *
 
 # up, right, down, left
@@ -30,19 +29,7 @@ class Snake:
             user to control which direction the snake is going
             in.
         """
-        x = accelerometer.get_x()
-        y = accelerometer.get_y()
-        # abs is the absolute function eg -1 => 1, 1 => 1
-        if abs(x) > abs(y):
-            if x < 0:
-                self.current_direction = DIRECTIONS[3]
-            else:
-                self.current_direction = DIRECTIONS[1]
-        else:
-            if y < 0:
-                self.current_direction = DIRECTIONS[0]
-            else:
-                self.current_direction = DIRECTIONS[2]
+        pass
 
     def update(self):
         """ This function will update the game state
@@ -50,14 +37,8 @@ class Snake:
         """
         head = self.snake[-1]
         new_head = [x + y for (x, y) in zip(self.current_direction, head)]
-        new_head = self.bounds_accounted(new_head)
-        if new_head in self.snake:
-            self.end = True
         self.snake.append(new_head)
-        if new_head == self.food:
-            self.food = self.gen_new_food()
-        else:
-            self.snake = self.snake[1:]
+        self.snake = self.snake[1:]
 
     def draw(self):
         """ This makes the game appear on the LEDs. """
@@ -65,29 +46,6 @@ class Snake:
         display.set_pixel(self.food[0], self.food[1], 5)
         for part in self.snake:
             display.set_pixel(part[0], part[1], 9)
-
-    def bounds_accounted(self, co_ords):
-        """ Takes some co-ordinates and wraps them if they
-            are out of the bounds of our board
-        """
-        # make a copy of the list to work on
-        new_co_ords = co_ords
-        # idx stands for index
-        for idx in range(len(co_ords)):
-            if co_ords[idx] > 4 or co_ords[idx] < 0:
-                # % is modulo operator, eg 8 % 5 == 3, -1 % 5 == 4
-                new_co_ords[idx] = co_ords[idx] % 5
-        return new_co_ords
-
-    def gen_new_food(self):
-        """ Move food to a new position after it has
-            been eaten.
-        """
-        new_food = [randint(0, 4), randint(0, 4)]
-        # make sure we're not generating the food in the snake
-        while new_food in self.snake:
-            new_food = [randint(0, 4), randint(0, 4)]
-        return new_food
 
 # game is an "instance" of Snake
 game = Snake()

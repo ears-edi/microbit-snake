@@ -1,4 +1,3 @@
-from random import randint
 from microbit import *
 
 # up, right, down, left
@@ -51,13 +50,8 @@ class Snake:
         head = self.snake[-1]
         new_head = [x + y for (x, y) in zip(self.current_direction, head)]
         new_head = self.bounds_accounted(new_head)
-        if new_head in self.snake:
-            self.end = True
         self.snake.append(new_head)
-        if new_head == self.food:
-            self.food = self.gen_new_food()
-        else:
-            self.snake = self.snake[1:]
+        self.snake = self.snake[1:]
 
     def draw(self):
         """ This makes the game appear on the LEDs. """
@@ -78,16 +72,6 @@ class Snake:
                 # % is modulo operator, eg 8 % 5 == 3, -1 % 5 == 4
                 new_co_ords[idx] = co_ords[idx] % 5
         return new_co_ords
-
-    def gen_new_food(self):
-        """ Move food to a new position after it has
-            been eaten.
-        """
-        new_food = [randint(0, 4), randint(0, 4)]
-        # make sure we're not generating the food in the snake
-        while new_food in self.snake:
-            new_food = [randint(0, 4), randint(0, 4)]
-        return new_food
 
 # game is an "instance" of Snake
 game = Snake()

@@ -51,8 +51,6 @@ class Snake:
         head = self.snake[-1]
         new_head = [x + y for (x, y) in zip(self.current_direction, head)]
         new_head = self.bounds_accounted(new_head)
-        if new_head in self.snake:
-            self.end = True
         self.snake.append(new_head)
         if new_head == self.food:
             self.food = self.gen_new_food()
