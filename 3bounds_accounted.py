@@ -56,9 +56,8 @@ class Snake:
         new_co_ords = co_ords
         # idx stands for index
         for idx in range(len(co_ords)):
-            if co_ords[idx] > 4 or co_ords[idx] < 0:
-                # % is modulo operator, eg 8 % 5 == 3, -1 % 5 == 4
-                new_co_ords[idx] = co_ords[idx] % 5
+            # % is modulo operator, eg 8 % 5 == 3, -1 % 5 == 4
+            new_co_ords[idx] = co_ords[idx] % 5
         return new_co_ords
 
 # game is an "instance" of Snake
