@@ -97,6 +97,9 @@ game = Snake()
 while True:
     game.handle_input()
     game.update()
+    if game.end:
+        display.show(Image.SAD)
+        break
     game.draw()
     # this makes our micro:bit do nothing for 500ms
     sleep(500)
