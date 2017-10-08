@@ -41,7 +41,17 @@ class Snake:
             new_head[0] -= 1
         elif self.current_direction == "right":
             new_head[0] += 1
-        new_head = self.bounds_accounted(new_head)
+
+        # make sure co-ords within bounds
+        if new_head[0] < 0:
+            new_head[0] = 4
+        elif new_head[0] > 4:
+            new_head[0] = 0
+        if new_head[1] < 0:
+            new_head[1] = 4
+        elif new_head[1] > 4:
+            new_head[1] = 0
+
         self.snake.append(new_head)
         self.snake = self.snake[1:]
 
@@ -51,18 +61,6 @@ class Snake:
         display.set_pixel(self.food[0], self.food[1], 5)
         for part in self.snake:
             display.set_pixel(part[0], part[1], 9)
-
-    def bounds_accounted(self, co_ords):
-        """ Takes some co-ordinates and wraps them if they
-            are out of the bounds of our board
-        """
-        # make a copy of the list to work on
-        new_co_ords = co_ords
-        # idx stands for index
-        for idx in range(len(co_ords)):
-            # % is modulo operator, eg 8 % 5 == 3, -1 % 5 == 4
-            new_co_ords[idx] = co_ords[idx] % 5
-        return new_co_ords
 
 # game is an "instance" of Snake
 game = Snake()
