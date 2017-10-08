@@ -1,9 +1,5 @@
 from microbit import *
 
-# up, right, down, left
-# direction is stored by the effect it has on position
-DIRECTIONS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
-
 class Snake:
     """ This class contains the functions that operate
         on our game as well as the state of the game.
@@ -16,7 +12,7 @@ class Snake:
                 game = Snake()
             init stands for "Initialisation"
         """
-        self.current_direction = DIRECTIONS[0]
+        self.current_direction = "up"
         # snake is a list of the pixels that the snake is at
         self.snake = [[2, 2]]
         # food is the co-ords of the current food
