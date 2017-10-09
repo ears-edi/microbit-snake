@@ -56,6 +56,16 @@ class Snake:
         elif self.current_direction == "right":
             new_head[0] += 1
 
+        # make sure co-ords within bounds
+        if new_head[0] < 0:
+            new_head[0] = 4
+        elif new_head[0] > 4:
+            new_head[0] = 0
+        if new_head[1] < 0:
+            new_head[1] = 4
+        elif new_head[1] > 4:
+            new_head[1] = 0
+
         if new_head in self.snake:
             self.end = True
         self.snake.append(new_head)
