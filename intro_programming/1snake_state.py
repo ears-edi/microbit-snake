@@ -26,6 +26,12 @@ class Snake:
             user to control which direction the snake is going
             in.
         """
+
+        ## STEP 3 - handling iput.
+        ## Your code goes here
+        ## 1. Get the X and Y values from the accelerometer
+        ## 2. Assign the direction ("up", "down" etc.) based on the X and Y.
+
         pass
 
     def update(self):
@@ -43,11 +49,24 @@ class Snake:
         elif self.current_direction == "right":
             new_head[0] += 1
 
+        ## STEP 2 - wrapping the snake.
+        ## Your code goes here
+        ## 1. Check whether new_head[0] is smaller than 0 or bigger than 4.
+        ## 2. Check whether new_head[1] is smaller than 0 or bigger than 4.
+
         if new_head in self.snake:
             self.end = True
         self.snake.append(new_head)
         if new_head == self.food:
-            # Generate new food here
+
+            ## STEP 4 - generate a new food.
+            ## Your code goes here
+            ## 1. Generate two random numbers ran_num1 and ran_num2 between 0 and 4 using randint(start, end).
+            ## 2. Create a new food using [ran_num1, nan_num2]
+            ## 2. Check whether new food is in snake using while.
+            ## 3. If it is generate two random numbers again and create new food again.
+
+            ## After you are done delete the next line.
             pass
         else:
             self.snake = self.snake[1:]

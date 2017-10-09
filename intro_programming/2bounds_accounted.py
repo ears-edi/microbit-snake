@@ -26,19 +26,10 @@ class Snake:
             user to control which direction the snake is going
             in.
         """
-        x = accelerometer.get_x()
-        y = accelerometer.get_y()
-        # abs is the absolute function eg -1 => 1, 1 => 1
-        if abs(x) > abs(y):
-            if x < 0:
-                self.current_direction = "left"
-            else:
-                self.current_direction = "right"
-        else:
-            if y < 0:
-                self.current_direction = "up"
-            else:
-                self.current_direction = "down"
+        ## STEP 3 - handling iput.
+        ## Your code goes here
+        ## 1. Get the X and Y values from the accelerometer
+        ## 2. Assign the direction ("up", "down" etc.) based on the X and Y.
 
     def update(self):
         """ This function will update the game state
@@ -69,7 +60,15 @@ class Snake:
             self.end = True
         self.snake.append(new_head)
         if new_head == self.food:
-            # Generate new food here
+
+            ## STEP 4 - generate a new food.
+            ## Your code goes here
+            ## 1. Generate two random numbers ran_num1 and ran_num2 between 0 and 4 using randint(start, end).
+            ## 2. Create a new food using [ran_num1, nan_num2]
+            ## 2. Check whether new food is in snake using while.
+            ## 3. If it is generate two random numbers again and create new food again.
+
+            ## After you are done delete the next line.
             pass
         else:
             self.snake = self.snake[1:]
