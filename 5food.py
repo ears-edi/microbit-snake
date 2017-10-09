@@ -67,7 +67,10 @@ class Snake:
 
         self.snake.append(new_head)
         if new_head == self.food:
-            self.food = self.gen_new_food()
+            self.food = [randint(0, 4), randint(0, 4)]
+            # make sure we're not generating the food in the snake
+            while self.food in self.snake:
+                self.food = [randint(0, 4), randint(0, 4)]
         else:
             self.snake = self.snake[1:]
 
@@ -77,16 +80,6 @@ class Snake:
         display.set_pixel(self.food[0], self.food[1], 5)
         for part in self.snake:
             display.set_pixel(part[0], part[1], 9)
-
-    def gen_new_food(self):
-        """ Move food to a new position after it has
-            been eaten.
-        """
-        new_food = [randint(0, 4), randint(0, 4)]
-        # make sure we're not generating the food in the snake
-        while new_food in self.snake:
-            new_food = [randint(0, 4), randint(0, 4)]
-        return new_food
 
 # game is an "instance" of Snake
 game = Snake()
