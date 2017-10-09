@@ -10,6 +10,10 @@ This file contains the completed workshop code. This can be flashed directly ont
 
 These are files that contain flashable code that progresses from nothing through the features of the game. These are intended for people that didn't manage to code each stage of the workshop.
 
+### intro\_programming
+
+This directory contains an alternative progression of making the game for people with less experience programming. More of the code is written already, and not all steps are done by the tutee.
+
 ## Running the file on the micro:bit
 
 You will need `python3` and `pip`.
