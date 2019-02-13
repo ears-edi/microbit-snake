@@ -29,4 +29,6 @@ Your micro:bit will then flash an orange LED for some time and reboot into the s
 
 ## Running this as a workshop
 
-We will soon be posting the slides we used for this and linking them from this repository. Attribution would be nice if you decide to run this, but it's not necessary. You are free to use and change this workshop and the code contained within as you please.
+Slides from this workshop as we run it are available [here](https://docs.google.com/presentation/d/1d5NM7Sf5eOalQJ1Otfe1fJ4gtUMj3hgkXyFJPTEyZik/edit?usp=sharing).
+
+Attribution would be nice if you decide to run this, but it's not necessary. You are free to use and change this workshop and the code contained within as you please.
