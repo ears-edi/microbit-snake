@@ -36,7 +36,7 @@ class Snake:
         """
         # The line below makes a copy of the head of the snake
         # you will be working with that copy in this function
-        # new_head = list(self.snake[-1])
+        # cur_head = list(self.snake[-1])
         pass
 
     def draw(self):
