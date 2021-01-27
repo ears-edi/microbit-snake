@@ -41,7 +41,7 @@ class Snake:
             elif self.current_direction == "right":
                 self.current_direction = "up"
         
-        def turn_clockwise(self):
+        def turn_clockwise():
             #This function will do the opposite of turn_anticlockwise()
             pass
         
